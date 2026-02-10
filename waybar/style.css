@@ -1,0 +1,230 @@
+/* --- Global Styles --- */
+* {
+  font-family: 'JetBrains Mono Nerd Font';
+  font-size: 13px;
+  min-height: 0;
+  padding-right: 0px;
+  padding-left: 0px;
+  padding-bottom: 0px;
+}
+
+/* --- Waybar Container --- */
+#waybar {
+  background: transparent;
+  color: #D8DEE9;
+  margin: 0px;
+  font-weight: 500;
+}
+
+/* --- Left Modules --- */
+#workspaces,
+#custom-uptime,
+#cpu,
+#tray {
+  background-color: #1E222A;
+  /* darker nord0 */
+  padding: 0.3rem 0.7rem;
+  margin: 5px 0px;
+  border-radius: 6px;
+  /* box-shadow: 0 1px 3px rgba(0, 0, 0, 0.4); */
+  min-width: 0;
+  border: none;
+  transition: background-color 0.2s ease-in-out, color 0.2s ease-in-out;
+}
+
+#tray {
+  margin-left: 0.5rem;
+  margin-right: 0.5rem;
+}
+
+#workspaces {
+  padding: 2px;
+  margin-left: 7px;
+  margin-right: 5px;
+}
+
+#custom-uptime {
+  margin-right: 5px;
+}
+
+/* Hover (darker, stronger contrast) */
+#custom-uptime:hover,
+#cpu:hover {
+  background-color: #2A3038;
+  /* darker nord1 */
+}
+
+#workspaces button {
+  color: #E5E9F0;
+  border-radius: 5px;
+  padding: 0.3rem 0.6rem;
+  background: transparent;
+  transition: all 0.2s ease-in-out;
+  border: none;
+  outline: none;
+}
+
+#workspaces button.active {
+  color: #88C0D0;
+  background-color: rgba(136, 192, 208, 0.18);
+  /* box-shadow: inset 0 0 0 1px rgba(136, 192, 208, 0.3); */
+}
+
+#workspaces button:hover {
+  background: #2A3038;
+  color: #ECEFF4;
+}
+
+/* --- Center Module --- */
+#clock {
+  background-color: #1E222A;
+  padding: 0.3rem 0.7rem;
+  margin: 5px 0px;
+  border-radius: 6px;
+  /* box-shadow: 0 1px 3px rgba(136, 192, 208, 0.3); */
+  min-width: 0;
+  border: none;
+  transition: background-color 0.2s ease-in-out, color 0.2s ease-in-out;
+}
+
+#clock:hover {
+  background-color: rgba(136, 192, 208, 0.12);
+}
+
+/* --- Pomodoro module --- */
+#custom-pomodoro {
+  background-color: #1E222A;
+  padding: 0.3rem 0.7rem;
+  margin: 5px 0px;
+  border-radius: 6px;
+  /* box-shadow: 0 1px 3px rgba(0, 0, 0, 0.4); */
+  min-width: 0;
+  border: none;
+  outline: none;
+  transition: background-color 0.2s ease-in-out, color 0.2s ease-in-out,
+    outline 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+  color: #E5E9F0;
+  font-weight: 600;
+}
+
+#custom-pomodoro {
+  margin-left: 5px;
+  margin-right: 5px;
+}
+
+#custom-pomodoro:hover {
+  background-color: #2A3038;
+  color: #ECEFF4;
+  outline: 1px solid rgba(255, 255, 255, 0.08);
+  outline-offset: -1px;
+}
+
+#custom-pomodoro.work,
+#custom-pomodoro.break {
+  color: #88C0D0;
+  background-color: rgba(136, 192, 208, 0.18);
+  /* box-shadow: inset 0 0 0 1px rgba(136, 192, 208, 0.3); */
+  outline: none;
+}
+
+/* --- Right Modules --- */
+#bluetooth,
+#pulseaudio,
+#backlight,
+#network,
+#custom-lock,
+#battery {
+  background-color: #1E222A;
+  padding: 0.3rem 0.7rem;
+  margin: 5px 0px;
+  border-radius: 0;
+  box-shadow: none;
+  min-width: 0;
+  border: none;
+  transition: background-color 0.2s ease-in-out, color 0.2s ease-in-out;
+}
+
+#bluetooth:hover,
+#pulseaudio:hover,
+#backlight:hover,
+#network:hover,
+#custom-lock:hover,
+#battery:hover {
+  background-color: #2A3038;
+}
+
+#bluetooth {
+  margin-left: 0px;
+  border-top-left-radius: 6px;
+  border-bottom-left-radius: 6px;
+}
+
+#battery {
+  border-top-right-radius: 6px;
+  border-bottom-right-radius: 6px;
+  margin-right: 7px;
+}
+
+#custom-uptime {
+  color: #E5E9F0;
+}
+
+#cpu {
+  color: #D8DEE9;
+}
+
+#clock {
+  color: #88C0D0;
+  font-weight: 500;
+}
+
+#pulseaudio,
+#backlight,
+#network {
+  color: #D8DEE9;
+}
+
+#network.disconnected {
+  color: #BF616A;
+}
+
+#custom-lock {
+  color: #E5E9F0;
+}
+
+#bluetooth {
+  color: #4C566A;
+  font-size: 16px;
+}
+
+#bluetooth.on {
+  color: #5E81AC;
+}
+
+#bluetooth.connected {
+  color: #88C0D0;
+}
+
+#battery {
+  color: #88C0D0;
+}
+
+#battery.charging {
+  color: #A3BE8C;
+}
+
+#battery.warning:not(.charging) {
+  color: #BF616A;
+}
+
+/* --- Tooltip --- */
+tooltip {
+  background-color: #1E222A;
+  color: #ECEFF4;
+  padding: 5px 12px;
+  margin: 5px 0px;
+  border-radius: 6px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  /* box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4); */
+  font-size: 12px;
+}
