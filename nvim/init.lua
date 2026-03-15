@@ -27,7 +27,7 @@ require "lazy_setup"
 require "polish"
 
 -- vim.cmd "source $HOME/.config/nvim/simple_theme.vim"
-vim.cmd.colorscheme "nordic"
+vim.cmd.colorscheme "gruvbox"
 
 vim.api.nvim_create_autocmd("LspAttach", {
   group = vim.api.nvim_create_augroup("lsp", { clear = true }),
