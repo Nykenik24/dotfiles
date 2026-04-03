@@ -1,9 +1,11 @@
 /* --- Waybar Container --- */
 #waybar {
-  background: #32302f;   /* bg2 */
+  background: #32302f;
+  /* bg2 */
   color: #ebdbb2;
   margin: 0px;
   font-weight: 500;
+  font-family: '0xProto Nerd Font';
 }
 
 /* --- Left Modules --- */
@@ -11,7 +13,8 @@
 #custom-uptime,
 #cpu,
 #tray {
-  background-color: #32302f;   /* bg2 */
+  background-color: #32302f;
+  /* bg2 */
   padding: 0.3rem 0.7rem;
   margin: 5px 0px;
   border-radius: 6px;
@@ -22,7 +25,8 @@
 /* Hover */
 #custom-uptime:hover,
 #cpu:hover {
-  background-color: #3c3836;   /* bg3 */
+  background-color: #3c3836;
+  /* bg3 */
 }
 
 #workspaces button {
@@ -85,7 +89,8 @@
 #backlight,
 #network,
 #custom-lock,
-#battery {
+#battery,
+#language {
   background-color: #32302f;
   padding: 0.3rem 0.7rem;
   margin: 5px 0px;
@@ -98,20 +103,39 @@
 #backlight:hover,
 #network:hover,
 #custom-lock:hover,
-#battery:hover {
+#battery:hover,
+#language:hover {
   background-color: #3c3836;
 }
 
 /* Status Colors */
-#bluetooth { color: #928374; }
-#bluetooth.on { color: #458588; }
-#bluetooth.connected { color: #83a598; }
+#bluetooth {
+  color: #928374;
+}
 
-#battery { color: #83a598; }
-#battery.charging { color: #b8bb26; }
-#battery.warning:not(.charging) { color: #fb4934; }
+#bluetooth.on {
+  color: #458588;
+}
 
-#network.disconnected { color: #cc241d; }
+#bluetooth.connected {
+  color: #83a598;
+}
+
+#battery {
+  color: #83a598;
+}
+
+#battery.charging {
+  color: #b8bb26;
+}
+
+#battery.warning:not(.charging) {
+  color: #fb4934;
+}
+
+#network.disconnected {
+  color: #cc241d;
+}
 
 #pulseaudio,
 #backlight,
@@ -124,7 +148,7 @@
 
 /* --- Tooltip --- */
 tooltip {
-  background-color: #3c3836;  
+  background-color: #3c3836;
   color: #fbf1c7;
   padding: 5px 12px;
   border-radius: 6px;

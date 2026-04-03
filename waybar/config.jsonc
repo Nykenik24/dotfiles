@@ -15,6 +15,7 @@
   ],
   "modules-right": [
     "custom/pomodoro",
+    "hyprland/language",
     "bluetooth",
     "network",
     "pulseaudio",
@@ -135,6 +136,13 @@
       "",
       ""
     ]
+  },
+  "hyprland/language": {
+    "format": "{}",
+    "format-en": "US 🇺🇸",
+    "format-es": "ES 🇪🇸",
+    "format-pl": "PL 🇵🇱",
+    "on-click": "hyprctl switchxkblayout keychron-keychron-k8-he-keyboard next"
   },
   "custom/lock": {
     "tooltip": false,
