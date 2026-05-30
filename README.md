@@ -4,9 +4,10 @@ These are my personal dotfiles.
 
 ## Files
 
-- **Hyrpland**: you can find both the hyprland config [for laptop](./laptop/hypr/) and [PC](./pc/hypr/), the only difference between both being mouse settings and display size/rate.
+<!--- **Hyrpland**: you can find both the hyprland config [for laptop](./laptop/hypr/) and [PC](./pc/hypr/), the only difference between both being mouse settings and display size/rate.-->
+- **Hyrpland**: `./hypr`.
 - **Ghostty**: `./ghostty/config`
-- **Wallpaper**: `./gruvbox_arch.png`
+- **Wallpapers**: `./walls`
 - **Nvim/Zed configs**: `./nvim` and `./zed` respectively.
 - **Waybar**: `./waybar`
 - **Wofi**: `./wofi`
