@@ -1,33 +1,37 @@
-* {
-  font-family: '0xProto Nerd Font Mono';
-}
-
-/* --- Main Window --- */
 window {
   margin: 0px;
-  border: 5px solid #458588;        /* Gruvbox blue */
-  background-color: #32302f;        /* bg2 */
+  background-color: #191724;
+  border-radius: 0px;
+  border: 2px solid #eb6f92;
+  color: #e0def4;
+  font-family: '0xProto Nerd Font';
+  font-size: 16px;
 }
 
-/* --- Search Input --- */
 #input {
   margin: 5px;
+  border-radius: 0px;
   border: none;
-  color: #fbf1c7;                   /* brighter fg */
-  background-color: #3c3836;        /* bg3 */
+  border-radius: 0px;
+  color: #eb6f92;
+  background-color: #26233a;
+
 }
 
-/* --- Inner Containers --- */
 #inner-box {
-  margin: 2px;
+  margin: 5px;
   border: none;
-  background-color: #32302f;        /* bg2 */
+  background-color: #26233a;
+  color: #191724;
+  border-radius: 0px;
 }
 
 #outer-box {
-  margin: 1px;
+  margin: 15px;
+  margin-bottom: 20px;
+  margin-top: 20px;
   border: none;
-  background-color: #32302f;        /* bg2 */
+  background-color: #191724;
 }
 
 #scroll {
@@ -35,21 +39,22 @@ window {
   border: none;
 }
 
-/* --- Entry Text --- */
 #text {
   margin: 5px;
   border: none;
-  color: #ebdbb2;                   /* base fg */
+  color: #e0def4;
 }
 
-#entry {
-  font-size: 14px;
-}
-
-/* --- Selected Entry --- */
 #entry:selected {
-  background-color: #504945;        /* bg4 (clear highlight) */
-  border: 2px solid #83a598;        /* bright blue accent */
-  color: #fbf1c7;
-  font-size: 16px;
+  background-color: #eb6f92;
+  color: #191724;
+  border-radius: 0px;
+  outline: none;
+}
+
+#entry:selected * {
+  background-color: #eb6f92;
+  color: #191724;
+  border-radius: 0px;
+  outline: none;
 }

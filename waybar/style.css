@@ -1,8 +1,9 @@
+@import "./rose-pine.css";
+
 /* --- Waybar Container --- */
 #waybar {
-  background: #32302f;
-  /* bg2 */
-  color: #ebdbb2;
+  background: @base;
+  color: @text;
   margin: 0px;
   font-weight: 500;
   font-family: '0xProto Nerd Font';
@@ -13,8 +14,7 @@
 #custom-uptime,
 #cpu,
 #tray {
-  background-color: #32302f;
-  /* bg2 */
+  background-color: @surface;
   padding: 0.3rem 0.7rem;
   margin: 5px 0px;
   border-radius: 6px;
@@ -25,12 +25,11 @@
 /* Hover */
 #custom-uptime:hover,
 #cpu:hover {
-  background-color: #3c3836;
-  /* bg3 */
+  background-color: @overlay;
 }
 
 #workspaces button {
-  color: #ebdbb2;
+  color: @text;
   border-radius: 5px;
   padding: 0.3rem 0.6rem;
   background: transparent;
@@ -38,49 +37,49 @@
 }
 
 #workspaces button.active {
-  color: #83a598;
-  background-color: rgba(131, 165, 152, 0.20);
+  color: @foam;
+  background-color: rgba(156, 207, 216, 0.20);
 }
 
 #workspaces button:hover {
-  background: #3c3836;
-  color: #fbf1c7;
+  background: @overlay;
+  color: @text;
 }
 
 /* --- Center Module --- */
 #clock {
-  background-color: #32302f;
+  background-color: @surface;
   padding: 0.3rem 0.7rem;
   margin: 5px 0px;
   border-radius: 6px;
   border: none;
-  color: #83a598;
+  color: @foam;
 }
 
 #clock:hover {
-  background-color: #3c3836;
+  background-color: @overlay;
 }
 
 /* --- Pomodoro --- */
 #custom-pomodoro {
-  background-color: #32302f;
+  background-color: @surface;
   padding: 0.3rem 0.7rem;
   margin: 5px 5px;
   border-radius: 6px;
   border: none;
-  color: #ebdbb2;
+  color: @text;
   font-weight: 600;
 }
 
 #custom-pomodoro:hover {
-  background-color: #3c3836;
-  color: #fbf1c7;
+  background-color: @overlay;
+  color: @text;
 }
 
 #custom-pomodoro.work,
 #custom-pomodoro.break {
-  color: #83a598;
-  background-color: rgba(131, 165, 152, 0.20);
+  color: @foam;
+  background-color: rgba(156, 207, 216, 0.20);
 }
 
 /* --- Right Modules --- */
@@ -91,7 +90,7 @@
 #custom-lock,
 #battery,
 #language {
-  background-color: #32302f;
+  background-color: @surface;
   padding: 0.3rem 0.7rem;
   margin: 5px 0px;
   border: none;
@@ -105,36 +104,36 @@
 #custom-lock:hover,
 #battery:hover,
 #language:hover {
-  background-color: #3c3836;
+  background-color: @overlay;
 }
 
 /* Status Colors */
 #bluetooth {
-  color: #928374;
+  color: @muted;
 }
 
 #bluetooth.on {
-  color: #458588;
+  color: @pine;
 }
 
 #bluetooth.connected {
-  color: #83a598;
+  color: @foam;
 }
 
 #battery {
-  color: #83a598;
+  color: @foam;
 }
 
 #battery.charging {
-  color: #b8bb26;
+  color: @gold;
 }
 
 #battery.warning:not(.charging) {
-  color: #fb4934;
+  color: @love;
 }
 
 #network.disconnected {
-  color: #cc241d;
+  color: @love;
 }
 
 #pulseaudio,
@@ -143,15 +142,15 @@
 #cpu,
 #custom-lock,
 #custom-uptime {
-  color: #ebdbb2;
+  color: @text;
 }
 
 /* --- Tooltip --- */
 tooltip {
-  background-color: #3c3836;
-  color: #fbf1c7;
+  background-color: @overlay;
+  color: @text;
   padding: 5px 12px;
   border-radius: 6px;
-  border: 1px solid rgba(235, 219, 178, 0.15);
+  border: 1px solid rgba(224, 222, 244, 0.15);
   font-size: 12px;
 }
