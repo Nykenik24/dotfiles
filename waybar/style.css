@@ -1,88 +1,31 @@
-@import "./rose-pine.css";
+@import "./colors.css";
 
-/* --- Waybar Container --- */
-#waybar {
-  background: @base;
-  color: @text;
-  margin: 0px;
-  font-weight: 500;
-  font-family: '0xProto Nerd Font';
+/* --- Global --- */
+* {
+  border: none;
+  min-height: 0;
+  box-shadow: none;
+  text-shadow: none;
 }
 
-/* --- Left Modules --- */
+window#waybar {
+  background: transparent;
+  color: @text;
+  font-family: '0xProto Nerd Font';
+  font-weight: 500;
+}
+
+#waybar {
+  background: transparent;
+}
+
+/* --- Shafrost pill style --- */
 #workspaces,
 #custom-uptime,
 #cpu,
-#tray {
-  background-color: @surface;
-  padding: 0.3rem 0.7rem;
-  margin: 5px 0px;
-  border-radius: 6px;
-  border: none;
-  transition: background-color 0.2s ease-in-out, color 0.2s ease-in-out;
-}
-
-/* Hover */
-#custom-uptime:hover,
-#cpu:hover {
-  background-color: @overlay;
-}
-
-#workspaces button {
-  color: @text;
-  border-radius: 5px;
-  padding: 0.3rem 0.6rem;
-  background: transparent;
-  border: none;
-}
-
-#workspaces button.active {
-  color: @foam;
-  background-color: rgba(156, 207, 216, 0.20);
-}
-
-#workspaces button:hover {
-  background: @overlay;
-  color: @text;
-}
-
-/* --- Center Module --- */
-#clock {
-  background-color: @surface;
-  padding: 0.3rem 0.7rem;
-  margin: 5px 0px;
-  border-radius: 6px;
-  border: none;
-  color: @foam;
-}
-
-#clock:hover {
-  background-color: @overlay;
-}
-
-/* --- Pomodoro --- */
-#custom-pomodoro {
-  background-color: @surface;
-  padding: 0.3rem 0.7rem;
-  margin: 5px 5px;
-  border-radius: 6px;
-  border: none;
-  color: @text;
-  font-weight: 600;
-}
-
-#custom-pomodoro:hover {
-  background-color: @overlay;
-  color: @text;
-}
-
-#custom-pomodoro.work,
-#custom-pomodoro.break {
-  color: @foam;
-  background-color: rgba(156, 207, 216, 0.20);
-}
-
-/* --- Right Modules --- */
+#tray,
+#clock,
+#custom-pomodoro,
 #bluetooth,
 #pulseaudio,
 #backlight,
@@ -91,12 +34,19 @@
 #battery,
 #language {
   background-color: @surface;
-  padding: 0.3rem 0.7rem;
-  margin: 5px 0px;
-  border: none;
+  color: @text;
+  margin: 5px 4px;
+  padding: 0.5rem 1.2rem;
+  border-radius: 8px;
   transition: background-color 0.2s ease-in-out, color 0.2s ease-in-out;
 }
 
+/* Hover */
+#custom-uptime:hover,
+#cpu:hover,
+#tray:hover,
+#clock:hover,
+#custom-pomodoro:hover,
 #bluetooth:hover,
 #pulseaudio:hover,
 #backlight:hover,
@@ -107,7 +57,30 @@
   background-color: @overlay;
 }
 
-/* Status Colors */
+/* --- Workspaces --- */
+#workspaces {
+  padding: 0rem 0rem;
+}
+
+#workspaces button {
+  color: @text;
+  background: transparent;
+  border: none;
+  padding: 0.25rem 0.55rem;
+  margin: 0 1px;
+}
+
+#workspaces button.active {
+  color: @ice;
+  background-color: rgba(159, 184, 199, 0.18);
+}
+
+#workspaces button:hover {
+  background-color: @overlay;
+  color: @text;
+}
+
+/* --- Status colors --- */
 #bluetooth {
   color: @muted;
 }
@@ -117,23 +90,23 @@
 }
 
 #bluetooth.connected {
-  color: @foam;
+  color: @ice;
 }
 
 #battery {
-  color: @foam;
+  color: @ice;
 }
 
 #battery.charging {
-  color: @gold;
+  color: @mist;
 }
 
 #battery.warning:not(.charging) {
-  color: @love;
+  color: @frost;
 }
 
 #network.disconnected {
-  color: @love;
+  color: @frost;
 }
 
 #pulseaudio,
@@ -145,12 +118,11 @@
   color: @text;
 }
 
-/* --- Tooltip --- */
+/* --- Tooltips --- */
 tooltip {
   background-color: @overlay;
   color: @text;
-  padding: 5px 12px;
-  border-radius: 6px;
-  border: 1px solid rgba(224, 222, 244, 0.15);
-  font-size: 12px;
+  padding: 6px 10px;
+  border-radius: 8px;
+  border: 1px solid rgba(232, 237, 242, 0.15);
 }

@@ -1,7 +1,0 @@
-{
-  "Header guard": {
-    "prefix": "#guard",
-    "body": ["#ifndef _$1_H\n#define _$1_H\n\n#endif", "$0"],
-    "description": "Creates a header guard"
-  }
-}

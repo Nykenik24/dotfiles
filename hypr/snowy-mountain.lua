@@ -1,0 +1,17 @@
+return {
+	base = "rgba(1b2028ff)",
+	surface = "rgba(232c36ff)",
+	overlay = "rgba(2a3440ff)",
+	muted = "rgba(66707cff)",
+	subtle = "rgba(8a95a1ff)",
+	text = "rgba(e8edf2ff)",
+	love = "rgba(7f98b8ff)",
+	gold = "rgba(b7c4d6ff)",
+	rose = "rgba(d0d8e0ff)",
+	pine = "rgba(4f7d8cff)",
+	foam = "rgba(9fb8c7ff)",
+	iris = "rgba(738aa6ff)",
+	highlightLow = "rgba(20262fff)",
+	highlightMed = "rgba(32404dff)",
+	highlightHigh = "rgba(475766ff)",
+}

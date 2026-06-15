@@ -1,7 +1,3 @@
--- hyprland.lua
--- Corrected against https://wiki.hypr.land/ and official example config
--- Hyprland >= 0.55 required
-
 --------------------
 ---- MONITORS   ----
 --------------------
@@ -11,6 +7,15 @@ hl.monitor({
 	position = "auto",
 	scale = 1,
 	vrr = true,
+})
+
+hl.monitor({
+	output = "HDMI-A-2",
+	mode = "1920x1080@144",
+	position = "auto",
+	scale = 1,
+	vrr = true,
+	-- transform = 3,
 })
 
 --@diagnostic disable: undefined-global
@@ -33,9 +38,7 @@ hl.env("QT_QPA_PLATFORMTHEME", "qt6ct")
 hl.permission("/usr/(bin|local/bin)/grim", "screencopy", "allow")
 hl.permission("/usr/(bin|local/bin)/hyprpm", "plugin", "allow")
 
--- MIGRATION_NOTE: verify this path resolves in your Lua module setup.
--- rose-pine.lua must be at ~/.config/hypr/rose-pine.lua
-local theme = require("rose-pine")
+local theme = require("colors")
 
 -----------------------
 ---- LOOK AND FEEL ----
@@ -48,8 +51,8 @@ hl.config({
 			active_border = { colors = { theme.rose, theme.pine, theme.love, theme.iris }, angle = 90 },
 			inactive_border = theme.muted,
 		},
-		gaps_in = 12.5,
-		gaps_out = 25,
+		gaps_in = 5,
+		gaps_out = 10,
 		layout = "scrolling",
 		resize_on_border = false,
 	},
@@ -62,12 +65,12 @@ hl.config({
 
 	decoration = {
 		active_opacity = 1.0,
-		inactive_opacity = 0.85,
+		inactive_opacity = 0.95,
 		rounding = 10,
 		blur = {
 			enabled = true,
 			passes = 1,
-			size = 3,
+			size = 6,
 			vibrancy = 0.1696,
 		},
 		shadow = {
@@ -113,6 +116,25 @@ hl.config({
 
 hl.window_rule({ name = "ghostty_starting_width", match = { class = "ghostty" }, scrolling_width = 0.5 })
 
+local workspaces_per_monitor = 10
+
+local function create_workspaces(monitor)
+	for i = 1, workspaces_per_monitor do
+		hl.workspace_rule({
+			workspace = tostring(monitor.id * workspaces_per_monitor + i),
+			monitor = monitor.name,
+			persistent = true,
+			default = (i == 1),
+		})
+	end
+end
+
+for _, monitor in ipairs(hl.get_monitors()) do
+	create_workspaces(monitor)
+end
+
+hl.on("monitor.added", create_workspaces)
+
 hl.device({
 	name = "epic-mouse-v1",
 	sensitivity = -0.5,
@@ -130,7 +152,7 @@ hl.bind(
 	hl.dsp.exec_cmd("command -v hyprshutdown >/dev/null 2>&1 && hyprshutdown || hyprctl dispatch 'hl.dsp.exit()'")
 )
 
-hl.bind(mainMod .. "+ Q", hl.dsp.window.kill())
+hl.bind(mainMod .. "+ Q", hl.dsp.window.close())
 hl.bind(mainMod .. " + E", hl.dsp.exec_cmd(fileManager))
 hl.bind(mainMod .. " + V", hl.dsp.window.float({ action = "toggle" }))
 hl.bind(mainMod .. " + Space", hl.dsp.exec_cmd(menu))
@@ -161,10 +183,35 @@ hl.bind(mainMod .. " + period", hl.dsp.layout("swapcol r"))
 hl.bind(mainMod .. " + comma", hl.dsp.layout("swapcol l"))
 
 -- Workspaces
+
+local function active_monitor_id()
+	local monitor = hl.get_active_monitor()
+	return monitor and monitor.id or 0
+end
+
+local function activate_workspace(number)
+	return function()
+		local monitor_id = active_monitor_id()
+		hl.dispatch(hl.dsp.focus({
+			workspace = tostring(monitor_id * workspaces_per_monitor + number),
+		}))
+	end
+end
+
+local function move_to_workspace(number)
+	return function()
+		local monitor_id = active_monitor_id()
+		hl.dispatch(hl.dsp.window.move({
+			workspace = tostring(monitor_id * workspaces_per_monitor + number),
+			follow = true,
+		}))
+	end
+end
+
 for i = 1, 10 do
-	local key = i % 10 -- 10 maps to key 0
-	hl.bind(mainMod .. " + " .. key, hl.dsp.focus({ workspace = i }))
-	hl.bind(mainMod .. " + SHIFT + " .. key, hl.dsp.window.move({ workspace = i }))
+	local key = tostring(i % 10)
+	hl.bind(mainMod .. " + " .. key, activate_workspace(i))
+	hl.bind(mainMod .. " + SHIFT + " .. key, move_to_workspace(i))
 end
 
 hl.bind(mainMod .. " + S", hl.dsp.workspace.toggle_special("magic"))

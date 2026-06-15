@@ -1,0 +1,22 @@
+/*
+* Variant: Snowy Mountain
+*/
+
+@define-color base #1b2028;
+@define-color surface #232c36;
+@define-color overlay #2a3440;
+
+@define-color muted #66707c;
+@define-color subtle #8a95a1;
+@define-color text #e8edf2;
+
+@define-color frost #7f98b8;
+@define-color mist #b7c4d6;
+@define-color snow #d0d8e0;
+@define-color pine #4f7d8c;
+@define-color ice #9fb8c7;
+@define-color sky #738aa6;
+
+@define-color highlightLow #20262f;
+@define-color highlightMed #32404d;
+@define-color highlightHigh #475766;
